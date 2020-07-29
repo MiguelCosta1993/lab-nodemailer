@@ -16,6 +16,15 @@ const userSchema = new mongoose.Schema(
     passwordHash: {
       type: String,
       required: true
+    },
+    status: {
+      type: String,
+      enum: ['pending_confimation', 'active'],
+      default: 'pending_confimation'
+    },
+    confirmationToken: {
+      type: String,
+      unique: true
     }
   },
   {
